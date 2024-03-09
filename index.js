@@ -1,10 +1,11 @@
 const types = ["LINKEDIN_INMAIL_SENT", "LINKEDIN_MESSAGE_SENT", "EMAIL_SENT"];
-async function initValues() {
-  await fetchStats();
-  setChartData();
-}
 
-async function fetchStats() {
+(function initValues() {
+  fetchStats();
+  setChartData();
+})();
+
+function fetchStats() {
   const average12Months = fetchAverage12Months();
   fetchAveragePeriod(average12Months);
 }
@@ -50,17 +51,6 @@ async function fetchAverage12Months() {
     document.getElementById("average-12-months").innerHTML = percentage;
     return percentage;
   });
-}
-
-function getPercentageInAggregate(result) {
-  return getPercentage(
-    result.data.replied.aggregate.count,
-    result.data.all.aggregate.count
-  );
-}
-
-function getPercentage(replied, all) {
-  return Math.floor((replied / all) * 100);
 }
 
 function setChartData() {
@@ -174,6 +164,16 @@ function fetchChartDataByType() {
   });
 }
 
+function getPercentageInAggregate(result) {
+  return getPercentage(
+    result.data.replied.aggregate.count,
+    result.data.all.aggregate.count
+  );
+}
+
+function getPercentage(replied, all) {
+  return Math.floor((replied / all) * 100);
+}
 function getPercentageByType(entries, type) {
   const separator = "___";
   const typeEntries = entries
@@ -192,8 +192,6 @@ function getPercentageByType(entries, type) {
     getPercentage(replied, allValue[index])
   );
 }
-
-initValues();
 
 async function fetchServer(query) {
   const headers = new Headers();
