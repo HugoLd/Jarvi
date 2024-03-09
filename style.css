@@ -1,0 +1,40 @@
+main {
+  width: 70%;
+  margin: auto;
+}
+.hidden {
+  display: none;
+}
+.loader-container {
+  width: fit-content;
+  margin: auto;
+}
+.stats-container {
+  margin-top: 100px;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+}
+.stat-container {
+  width: 250px;
+  height: 50px;
+  justify-content: center;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 16px;
+  align-items: center;
+}
+.stat {
+  display: flex;
+}
+.bad {
+  background-color: lightcoral;
+}
+.good {
+  background-color: lightgreen;
+}
+
+.chart {
+  margin: 50px auto;
+}
