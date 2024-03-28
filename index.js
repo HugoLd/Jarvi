@@ -5,6 +5,7 @@ const types = ["LINKEDIN_INMAIL_SENT", "LINKEDIN_MESSAGE_SENT", "EMAIL_SENT"];
   setChartData();
 })();
 
+
 function fetchStats() {
   const average12Months = fetchAverage12Months();
   fetchAveragePeriod(average12Months);
